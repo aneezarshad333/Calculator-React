@@ -16,11 +16,15 @@ function App() {
     setCalculatorScreen(num)
   }
   const calculate = () => {
-    var replaced = calculatorScreen.replace(",", "")
-    try {
-      formatResult(String(eval(replaced)))
-    }
-    catch {
+    if (calculatorScreen != '') {
+      var replaced = calculatorScreen.replace(",", "")
+      try {
+        formatResult(String(eval(replaced)))
+      }
+      catch {
+        setCalculatorScreen('Invalid')
+      }
+    }else{
       setCalculatorScreen('Invalid')
     }
   }
@@ -28,7 +32,7 @@ function App() {
     setCalculatorScreen(String(calculatorScreen).slice(0, -1))
   }
   const [mode, setMode] = useState(true)
-  const [background,setBackground]=useState('#e4e5f1')
+  const [background, setBackground] = useState('#e4e5f1')
   const lightMode = () => {
     setMode(true)
     setBackground('#e4e5f1')
@@ -39,12 +43,12 @@ function App() {
   }
   return (
     <>
-      <div id='mainDiv'style={{ width: '100%', height: '100vh', backgroundColor: `${background}` }} >
+      <div id='mainDiv' style={{ width: '100%', height: '100vh', backgroundColor: `${background}` }} >
         <div className='text-center pt-3'>
           {mode ?
-            <button className='btn' onClick={darkMode}><i class="fa-solid fa-sun fa-l" ></i></button> 
-            : 
-            <button className='btn'onClick={lightMode} style={{color:'white'}}><i class="fa-solid fa-moon" ></i></button>
+            <button className='btn' onClick={darkMode}><i class="fa-solid fa-sun fa-l" ></i></button>
+            :
+            <button className='btn' onClick={lightMode} style={{ color: 'white' }}><i class="fa-solid fa-moon" ></i></button>
           }
         </div>
         <div className='d-flex justify-content-center mt-3'>

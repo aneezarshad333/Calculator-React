@@ -1,0 +1,19 @@
+#lightGray{
+    background-color: #D4D4D2;
+}
+#darkLiver{
+    background-color:  #505050;
+}
+#vividGamboge{
+    background-color: #FF9500;
+    color: #ffffff;
+}
+.buttons{
+    width: 70px;
+    height:70px;
+    font-size: 25px;
+}
+.zeroPill{
+    width: 150px;
+    font-size: 25px;
+}
